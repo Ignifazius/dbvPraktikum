@@ -44,26 +44,37 @@ A(1:5, 310:320) = 1;
 
 %% (c) Bild laden und anzeigen
 Cap1 = imread('capture1.bmp');
-imshow(Cap1);
+% imshow(Cap1);
 
 %% (d) Bild in Graubild umwandeln und anzeigen
 I = rgb2gray(Cap1);
-imshow(I);
 
 %% (e) Bild aufnehmen und anzeigen
-
-
+% irpCaptureImage;
+% image = capImg;
 %% (f) Bild speichern
-
+% imwrite(image, 'P:\bvprak\versuch0\capture2.bmp'); %Falls nicht
+% auskommentiert: Kind im Bild...
 
 %% (g) Bild an Hauptdiagonale spiegeln und anzeigen
-
-
+I = I';
+figure;
+% imshow(I);
 %% (h) Histogramm erstellen und zusammen mit dem Bild in zwei Fenstern anzeigen
-
+figure;
+% imhist(I);
 
 %% (i) Festen Grauwert addieren und Histogramm und Bild in einem Fenster anzeigen
-
+I2 = I+100;
+subplot(1,2,1);
+imshow(I2);
+subplot(1,2,2);
+imhist(I2);
 
 %% (j) Kontrastspreizung und wieder Histogramm und Bild in einem Fenster anzeigen
-
+figure;
+I3 = imadjust(I,[0/255 20/255],[0/255 255/255]);
+subplot(1,2,1);
+imshow(I3);
+subplot(1,2,2);
+imhist(I3);
