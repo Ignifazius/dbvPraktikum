@@ -1,0 +1,30 @@
+function RGB = irpThresholdsGray2RGB(I, low, high)
+% RGB = irpThresholdsGray2RGB(I, low, high)
+% Konvertiert ein Graustufenbild in ein RGB-Bild mit folgenden
+% Farbwerten (R,G,B): 
+% - (0,   0,  255) Hintergrund (blau)
+% - (0,   255,  0) Bauteile (grün) 
+% - (255, 0,    0) Schlitten (rot)
+% - (0,   0,    0) Sonst (schwarz)   
+%
+% Parameter:
+% 'I'                 Graustufenbild
+% 'low'               Niedriger Schwellwert
+% 'high'              Hoher Schwellwert
+%
+% Rückgabewerte:
+% 'RGB'               Klassifiziertes RGB-Bild
+
+% Erstelle Farbbild.
+% Die Farbkanäle werden zuerst getrennt erstellt und dann zusammengeführt.
+% 1. Tipp: Logische Operatoren lassen sich auf Matrizen anwenden. Bsp.:
+%    A = [1 2; 3 4];
+%    A > 2 liefert das 'Binärbild' [0 0; 1 1]
+% 2. Tipp: Verknüpfung von Binärbildern z.B. über .*
+% 3. Tipp: Multiplikation mit einem Skalar. Bsp.:
+%    B = [0 1; 1 1];
+%    B * 255 liefert die Matrix [0 255; 255 255];
+B = 
+G = 
+R = 
+RGB = cat(3, R, G, B);
