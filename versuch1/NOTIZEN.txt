@@ -1,0 +1,22 @@
+3.3.1
+a) check
+
+b) check
+
+c) Brennweite + Blende
+
+d+e) Helligkeit: Helligkeit -> Verschiebt das Histogramm
+Verstärkung: Kontrast -> Staucht und Verschiebt das Histogramm
+
+Belichtung: Belichtungsdauersdauer
+
+
+f) Werte verteilen sich auf breitere Fläche (Stauchung)
+
+g) Verhältnisse der 3 "Hügel" ändern sich.
+
+h) Die 3 Hügel repräsentieren die 3 Farben (Graustufen).
+
+i) check
+
+CIP01.rob.cs.tu-bs.de
