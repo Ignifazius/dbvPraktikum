@@ -20,3 +20,18 @@ h) Die 3 Hügel repräsentieren die 3 Farben (Graustufen).
 i) check
 
 CIP01.rob.cs.tu-bs.de
+
+
+
+
+
+3.3.3
+a) Messrauschen, Beleuchtungsrauschen
+
+b) Schatten, falsche Blendeneinstellung, Auflösung des Bildes
+
+e) 
+
+ average: staucht und streut die Werte
+ 
+ median: Unterdrückung der "kleinen" Werte
