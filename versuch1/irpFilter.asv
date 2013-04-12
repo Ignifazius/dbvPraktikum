@@ -11,13 +11,13 @@ function F = irpFilter(I, noise, algorithm)
 % 'F'                 Gefiltertes Bild.
 
 % Setze Filtergröße.
-fsize = (noise*2)+1;
+fsize = 
 
 % Führe Filteroperation durch in Abhängigkeit von 'algorithm'.
 if (algorithm == 1)
-    F = irpAveragefilt2(I, fsize);
+    irpAveragefilt2(I, fsize);
 end
 
 if (algorithm == 2)
-    F = medfilt2(I,[fsize fsize]);
+    
 end

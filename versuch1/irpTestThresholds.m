@@ -13,22 +13,22 @@ function irpTestThresholds(I, m, n, p)
 % -
 
 % Berechne die Schwellwerte.
-[low high] = 
+[low high] = irpThresholds(I);
 
 % Zeichne das Originalbild.
-TODO % subplot selektieren
+subplot(n,m,p); % subplot selektieren
 p = p + 1; % inkrementiert die aktuelle Position im subplot
-TODO % Originalbild darstellen
+imshow(I); % Originalbild darstellen
 
 % Zeichne das RGB-Bild.
-TODO % subplot selektieren
+subplot(n,m,p); % subplot selektieren
 p = p + 1;
-RGB = 
-TODO % RGB-Bild darstellen
+RGB = irpThresholdsGray2RGB(I, low, high);
+imshow(RGB); % RGB-Bild darstellen
 
 % Zeichne Histogramm.
-TODO % subplot selektieren
-TODO % Histogramm darstellen
+subplot(n,m,p); % subplot selektieren
+imhist(I); % Histogramm darstellen
 ylim([0 4000]);
 
 % Zeichne Schwellwerte in das Histogramm.

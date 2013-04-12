@@ -3,7 +3,7 @@
 doTest    = 1;       % Führe Tests aus? 0 (nein), 1 (ja)
 noise     = 1;       % Stärke des Rauschfilters: 
                      % 0 (aus), 1 (leicht), 2 (stark)
-algorithm = 0;       % Auswahl des Filterverfahrens
+algorithm = 2;       % Auswahl des Filterverfahrens
                      % 1 (Average), 2 (Median)
 morph     = 1;       % Stärke der morphologischen Filteroperation:
                      % 0 (aus), 1 (leicht), 2 (stark)

@@ -10,10 +10,10 @@ function irpTestFilter(I, noise)
 % -
 
 % Average-Filter.
-A = 
+A = irpFilter(I, noise, 1);
 
 % Median-Filter.
-M = 
+M = irpFilter(I, noise, 2);
 
 % Stelle Bilder dar.
 irpTestThresholds(I, 3, 3, 1);

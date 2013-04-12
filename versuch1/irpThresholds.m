@@ -17,10 +17,10 @@ H = imhist (I);
 % werden, die 3 gewichtete Gaussverteilungen aus dem Histogramm schätzt.
 irp3Gaussians1d(H);
 [MU, SIGMA, WEIGHT] = irp3Gaussians1d (H);
-
+MU = sort(MU);
 % Berechne die Schwellwerte.
-low = MU(2) - MU(1);
-high = MU(3) - MU (2);
+low = (MU(2)+MU(1))/2;
+high =(MU(2)+MU(3))/2;
 
 
 

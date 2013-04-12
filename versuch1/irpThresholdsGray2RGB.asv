@@ -24,7 +24,7 @@ function RGB = irpThresholdsGray2RGB(I, low, high)
 % 3. Tipp: Multiplikation mit einem Skalar. Bsp.:
 %    B = [0 1; 1 1];
 %    B * 255 liefert die Matrix [0 255; 255 255];
-B = (I < low)*255;
-G = ((I > low).*(I < high)) *255;
-R = (I > high)*255;
+B = I<low)*2
+G = 
+R = 
 RGB = cat(3, R, G, B);
