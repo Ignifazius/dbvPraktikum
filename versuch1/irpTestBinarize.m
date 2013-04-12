@@ -12,7 +12,11 @@ function irpTestBinarize(I, low, high)
 % -
 
 % Binarisiere das Bild.
-[Bb Bs] = 
+[Bb Bs] = irpBinarize(I, low, high);
 
 % Stelle das Ergebnis dar.
-TODO
+figure;
+subplot(1,2,1);
+imshow(Bb);
+subplot(1,2,2);
+imshow(Bs);

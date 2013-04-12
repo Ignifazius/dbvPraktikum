@@ -12,11 +12,15 @@ function irpTestMorph(Bb, Bs, morph)
 % -
 
 % Berechne Binärbilder nach morphologischen Operationen.
-Mb = 
-Ms = 
+Mb = irpMorph(Bb, morph);
+Ms = irpMorph(Bs, morph);
 
 % Stelle Ergebnisse dar.
-TODO
+figure;
+subplot(1,2,1);
+imshow(Mb);
 
+subplot(1,2,2);
+imshow(Ms);
 
 

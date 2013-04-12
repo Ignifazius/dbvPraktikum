@@ -10,10 +10,14 @@ function irpTestLabel(Bb)
 % -
 
 % Berechne Labelbild.
-Lb = 
+Lb = irpLabel(Bb);
 
 % Berechne RGB-Bild aus Labelbild (z.B. per label2rgb).
-RGB = 
+RGB = label2rgb(Lb);
 
 % Stelle RGB-Bild unterhalb des Binärbildes dar.
-TODO
+figure;
+subplot(2,1,1);
+imshow(Bb);
+subplot(2,1,2);
+imshow(RGB);

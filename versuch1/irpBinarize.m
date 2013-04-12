@@ -13,7 +13,7 @@ function [Bb, Bs] = irpBinarize(I, low, high)
 % 'Bs'                Binarisiertes Bild für Schlitten
 
 % Binarisiere Bauteile.
-Bb = 
+Bb = ((I > low).*(I < high));
 
 % Binarisiere Schlitten.
-Bs = 
+Bs = (I > high);

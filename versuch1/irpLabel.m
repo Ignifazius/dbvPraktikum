@@ -9,4 +9,4 @@ function L = irpLabel(B)
 % 'L'                 Labelbild
 
 % Etikettierung mittels bwlabel
-L = 
+L = bwlabel(B,8);

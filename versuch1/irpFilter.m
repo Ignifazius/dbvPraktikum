@@ -21,3 +21,7 @@ end
 if (algorithm == 2)
     F = medfilt2(I,[fsize fsize]);
 end
+
+if (algorithm == 0)
+    F = I;
+end
