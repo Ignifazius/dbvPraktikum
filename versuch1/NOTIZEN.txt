@@ -35,3 +35,28 @@ e)
  average: staucht und streut die Werte
  
  median: Unterdrückung der "kleinen" Werte
+
+
+
+3.3.5
+
+a) siehe Bilder
+
+d) shrink -> expand: abstände vergrößern, teile separieren
+    expand -> shrink: Lücken schließen, Teile verbinden
+
+e) ggf. ungewollte Verbindung von Elementen, bei negativ-Bildern funktionere Operationen umgekehrt; Umrissänderung abhängig vom Filterkern
+
+
+
+3.3.6
+
+a) Markierung jeweils zusammenhängender Bildbereiche, abhängig von Nachbarschaftsdefinition.
+
+c) 4 bzw 8-Nachbarschaft
+
+
+
+
+
+
