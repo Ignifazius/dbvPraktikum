@@ -1,6 +1,7 @@
 %% Setze einige Variablen.
 % 'I' muss bekannt und ein Grauwertbild sein.
-I = imread('testmuster3.bmp');
+%I = imread('testmuster3.bmp');
+I = rgb2gray(imread('testmuster3c.bmp'));
 doTest    = 1;       % Führe Tests aus? 0 (nein), 1 (ja)
 noise     = 1;       % Stärke des Rauschfilters: 
                      % 0 (aus), 1 (leicht), 2 (stark)
