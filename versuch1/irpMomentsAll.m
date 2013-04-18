@@ -55,9 +55,11 @@ for i=1:numRegions
     % Bitte darauf achten, dass in 'Lc' die Koordinaten in der Form
     % (Spalte, Zeile)=(x,y) abgespeichert werden müssen und nicht in der
     % Form (Zeile, Spalte).
-    [I J] = 
-    Lc = 
-    
-    % Berechne Momente für Region.
-    TODO
+    [I J] = find(L == i);
+    Lc = [I J];
+   
+    % Berechne Momente für jede Region.
+    M(i,:) = irpMoments(Lc);
+    Mu(i,:)= irpCentralMoments(Lc);
+    Mh(i,:)= irpHuMoments(Lc);
 end

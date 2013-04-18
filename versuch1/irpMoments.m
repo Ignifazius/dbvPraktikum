@@ -11,7 +11,7 @@ function m = irpMoments(Lc)
 % 'm'                 10d Zeilenvektor mit den gesuchten Momemten.
 
 % Hole Anzahl der Zeilen von 'Lc'.
-numRows = 
+numRows = size(Lc,1);
 
 % Initialisiere Werte.
 % Es wird hier nicht direkt in 'm' geschrieben, 
@@ -28,7 +28,23 @@ m21 = 0;
 m30 = 0;
 
 % Berechne die Momente.
-TODO
+
+for i = 1:numRows
+    x =  Lc(i,1); % x-Werte
+    y =  Lc(i,2); % y-Werte
+    
+    m00 = m00 + 1;
+    m01 = m01 + y;
+    m02 = m02 + y*y;
+    m03 = m03 + y*y*y;
+    m10 = m10 + x;
+    m11 = m11 + x*y;
+    m12 = m12 + x*y*y;
+    m20 = m20 + x*x;
+    m21 = m21 + x*x*y;
+    m30 = m30 + x*x*x;
+end
+
 
 % Schreibe Werte in Zeilenvektor.
 m = zeros(1, 10);
