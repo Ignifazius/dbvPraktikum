@@ -58,5 +58,19 @@ c) 4 bzw 8-Nachbarschaft
 
 
 
+3.3.8
 
+c) kann zu fehlerhafter Schwerpunktberechnung führen, wenn weiter entferntes Objekt ebendfalls gleich gelabelt wurde. Falscher Schwerpunkt = falsche Position.
+
+
+3.3.9
+
+d) Hu-Momente werden durch Skalierung in ähnliche Größenodnung gebracht, da sie vorher stark mit der Ordnung abfallen
+d.h. Objekte können nicht klassifiziert werden da die entstehende distanz zu groß ist
+
+e) Hu-Momente skalieren
+
+f) nein | klassifikation durch suchen von Punkten mit ähnlichen eigenschaften und zusammenfassung in clustern bzw punktwolken. Dann: art der cluster unterscheiden
+
+g) schattierung, schlechte lichhtverhältnisse, falsches referenzbild, vertauschte xy-Werte
 
