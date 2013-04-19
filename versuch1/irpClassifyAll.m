@@ -9,10 +9,12 @@ function C = irpClassifyAll(Mh)
 % 'C'                 Spaltenvektor mit Klassenzuordnungen. 
 
 % Hole die Anzahl der Regionen.
-numRegions = 
+numRegions = size(Mh, 1);
 
 % Initialisiere die Matrizen.
-C = 
+C = zeros(numRegions, 1);
 
 % Berechne die Klasse für jede einzelne Region.
-TODO
+for i = 1:numRegions
+    C(i) = irpClassify(Mh(i,:)); 
+end

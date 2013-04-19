@@ -20,15 +20,19 @@ u20 = u(irpM(2,0));
 u02 = u(irpM(0,2));
 
 % Position als Schwerpunkt.
-p = 
+x = m10/m00; % Vertauschen wg. Fehler in Prog
+y = m01/m00;
+p = [x, y];
     
 % Winkel.
-phi = 
+phi = 0.5 * atan((2*u11)/ (u20 - u02));
 
 % Normale.
 % Nehmen Sie an, dass der Winkel 'phi' zwischen der gesuchten
 % Normale und der x-Achse liegt.
-n = 
+
+ n = [cos(phi), sin(phi)]; 
+
 
 % Richte Normale an Hauptachse aus.
 if u02 > u20

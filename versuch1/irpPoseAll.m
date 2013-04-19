@@ -15,10 +15,10 @@ function [P N] = irpPoseAll(M, Mu)
 numRows = size(M, 1);
 
 % Initialisiere die Matrizen.
-P = zeros(
-N = zeros(
+P = zeros(numRows,2);
+N = zeros(numRows,2);
 
 % Berechne die Pose für jede einzelne Region.
-for
-    TODO
+for i=1:numRows
+    [P(i,:) N(i,:)] = irpPose(M(i,:), Mu(i,:));
 end

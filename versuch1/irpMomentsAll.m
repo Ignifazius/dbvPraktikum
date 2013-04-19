@@ -56,10 +56,10 @@ for i=1:numRegions
     % (Spalte, Zeile)=(x,y) abgespeichert werden müssen und nicht in der
     % Form (Zeile, Spalte).
     [I J] = find(L == i);
-    Lc = [I J];
+    Lc = [J I]; % x und y tauschen
    
     % Berechne Momente für jede Region.
     M(i,:) = irpMoments(Lc);
-    Mu(i,:)= irpCentralMoments(Lc);
-    Mh(i,:)= irpHuMoments(Lc);
+    Mu(i,:)= irpCentralMoments(M(i,:));
+    Mh(i,:)= irpHuMoments(Mu(i,:));
 end
