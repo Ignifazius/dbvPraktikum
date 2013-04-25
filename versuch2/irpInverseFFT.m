@@ -9,5 +9,8 @@ function I = irpInverseFFT(amplitude, phase)
 % Rückgabewerte:
 % 'I'                 Eingabebild
 
+tmp = exp(i*phase).*amplitude;
+I = real(ifft2(tmp));
+
 
 

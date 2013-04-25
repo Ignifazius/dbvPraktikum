@@ -1,4 +1,4 @@
-3.3.1
+﻿3.3.1
 a) check
 
 b) check
@@ -56,11 +56,15 @@ a) Markierung jeweils zusammenhängender Bildbereiche, abhängig von Nachbarscha
 c) 4 bzw 8-Nachbarschaft
 
 
+3.3.7
+
+d) Die Hu-Momente 3-7 ergeben sich aus den ungeraden Zentralmomenten (Index aufsummieren). Diese sind bei symmetrischen Figuren gleich null.
+
 
 
 3.3.8
 
-c) kann zu fehlerhafter Schwerpunktberechnung führen, wenn weiter entferntes Objekt ebendfalls gleich gelabelt wurde. Falscher Schwerpunkt = falsche Position.
+c) kann zu fehlerhafter Schwerpunktberechnung führen, wenn weiter entferntes Objekt ebenfalls gleich gelabelt wurde. Falscher Schwerpunkt = falsche Position.
 
 
 3.3.9
