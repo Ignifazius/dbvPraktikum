@@ -11,5 +11,11 @@ function D = irpDiracFeld(size_y, size_x, delta_x, delta_y)
 % Rückgabewerte:
 % 'D'                 Diracfeld
 
+D = zeros(size_x, size_y);
 
+for i=1:delta_x:size_x
+    for j=1:delta_y:size_y
+         D(i,j) = 1;
+    end
+end
 

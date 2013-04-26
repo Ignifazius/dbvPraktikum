@@ -6,26 +6,25 @@
 I1 = rgb2gray(imread('Lena.bmp'));
 I2 = imread('iRP-Logo.bmp');
 
-
 % Visualisierung der Amplituden- und Phasenspektren.
 % Hinweis: imshow(I, []) kann recht nützlich sein.
 [amp, pha] = irpFFT(I1);
 figure(1);
-subplot(3,3,1);
+subplot(1,3,1);
 imshow(I1);
-subplot(3,3,2);
+subplot(1,3,2);
 imshow(log2(fftshift(amp)), []);
-subplot(3,3,3);
+subplot(1,3,3);
 imshow((pha), []);
 
 
 [amp2, pha2] = irpFFT(I2);
 figure;
-subplot(3,1,1);
+subplot(1,3,1);
 imshow(I2);
-subplot(3,1,2);
+subplot(1,3,2);
 imshow(log2(fftshift(amp2)), []);
-subplot(3,1,3);
+subplot(1,3,3);
 imshow((pha2), []);
 
 
@@ -36,8 +35,8 @@ imshow((pha2), []);
 ampConst = ones(m,n) * 100;
 
 % Visualisierung des Amplituden- und Phasenspektrums.
-figure(1);
-subplot(3,3,4);
+figure(6);
+subplot(1,2,1);
 imshow(irpInverseFFT(ampConst, pha), []);
 
 
@@ -47,8 +46,8 @@ phaConst = ones(m,n) * 100;
 
 
 % Visualisierung des Amplituden- und Phasenspektrums.
-figure(1);
-subplot(3,3,7);
+figure(6);
+subplot(1,2,2);
 imshow(irpInverseFFT(amp, phaConst), []);
 
 
@@ -60,10 +59,10 @@ pha = pha2;
 pha2 = tmp1;
 
 % Visualisierung der Amplituden- und Phasenspektren.
-figure(1);
-subplot(3,3,8);
+figure(7);
+subplot(1,2,1);
 imshow(irpInverseFFT(amp, pha), []);
-subplot(3,3,9);
+subplot(1,2,2);
 imshow(irpInverseFFT(amp2, pha2), []);
 
 
@@ -73,27 +72,79 @@ imshow(irpInverseFFT(amp2, pha2), []);
 %% 2.a) - 2.b)
 
 % Hoch - und Tiefpassfilterung mehrerer Testbilder.
-
-
-
 % Visualisierung der Ergebnisse.
+
+% Bild 1
+figure(3);
+subplot(2,3,1);
+imshow(I1);
+subplot(2,3,2);
+[a p] = irpHochpass(amp, pha2, 10);
+imshow(irpInverseFFT(a, p), []);
+subplot(2,3,3);
+[a2 p2] = irpTiefpass(amp, pha2, 30);
+imshow(irpInverseFFT(a2, p2), []);
+
+% Bild 2
+figure(3);
+subplot(2,3,4);
+imshow(I2);
+subplot(2,3,5);
+[a p] = irpHochpass(amp2, pha, 10);
+imshow(irpInverseFFT(a, p), []);
+subplot(2,3,6);
+[a2 p2] = irpTiefpass(amp2, pha, 30);
+imshow(irpInverseFFT(a2, p2), []);
+
 
 
 
 %% 2.c)
 
 % Addition von Bildrauschen.
+% Gauß'sches Rauschen
+ I1R = imnoise(I1, 'gaussian');
+ 
+% Salt'n'Pepper Noise
+ I2R = imnoise(I2, 'salt & pepper');
 
-
-
+[amp, pha] = irpFFT(I1R);
+[amp2, pha2] = irpFFT(I2R);
 % Visualisierung der verrauschten Bilder.
+% Bild 1
+figure(4);
+subplot(2,3,1);
+imshow(I1R);
+subplot(2,3,2);
+[a p] = irpHochpass(amp, pha, 10);
+imshow(irpInverseFFT(a, p), []);
+subplot(2,3,3);
+[a2 p2] = irpTiefpass(amp, pha, 30);
+imshow(irpInverseFFT(a2, p2), []);
 
+% Bild 2
+figure(4);
+subplot(2,3,4);
+imshow(I2R);
+subplot(2,3,5);
+[a p] = irpHochpass(amp2, pha2, 10);
+imshow(irpInverseFFT(a, p), []);
+subplot(2,3,6);
+[a2 p2] = irpTiefpass(amp2, pha2, 30);
+imshow(irpInverseFFT(a2, p2), []);
 
 
 %% 2.d)
 
 % Tiefpassfilterung.
+figure(5);
+subplot(2,1,1);
+[a2 p2] = irpTiefpass(amp, pha, 70);
+imshow(irpInverseFFT(a2, p2), []);
 
+subplot(2,1,2);
+[a2 p2] = irpTiefpass(amp2, pha2, 50);
+imshow(irpInverseFFT(a2, p2), []);
 
 
 % Visualisierung der Ergebnisse.
@@ -104,7 +155,7 @@ imshow(irpInverseFFT(amp2, pha2), []);
 %% 3.a) - 3.c)
 
 % Laden von 'Sonnet_for_Lena.bmp'.
-
+I3 = rgb2gray(imread('Sonnet_for_Lena.bmp'));
 
 
 % Abtastung mit unterschiedlichen Abtständen delta_x und delta_y.
