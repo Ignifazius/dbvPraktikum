@@ -13,6 +13,19 @@ function C = irpOCR(I, T)
 % vorliegen bzw. gebracht werden, damit eine korrekte Korrelation 
 % möglich ist?
 
+I = rgb2gray(I);
+T = imrotate(rgb2gray(T),180);
+
+% einheitliche Definitionsmenge
+[size_Ix size_Iy] = size(I);
+[size_Tx size_Ty] = size(T);
+
+I2 = zeros(size_Ix + size_Tx, size_Iy + size_Ty);
+T2 = zeros(size_Ix + size_Tx, size_Iy + size_Ty);
+
+I2(1:size_Ix, 1:size_Iy) =  I;
+T2(1:size_Tx, 1:size_Ty) =  T;
+% Multiplikation im Ortsfrequenzbereich
 
 
 

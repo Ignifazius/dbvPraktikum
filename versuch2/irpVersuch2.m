@@ -159,56 +159,121 @@ I3 = rgb2gray(imread('Sonnet_for_Lena.bmp'));
 
 
 % Abtastung mit unterschiedlichen Abtständen delta_x und delta_y.
-
+O1 = irpAbtastung(I3, 1, 1);
+O2 = irpAbtastung(I3, 2, 2);
+O3 = irpAbtastung(I3, 3, 3);
 
 
 % Visualisierung der abgetasteten Bilder.
-
+figure(8);
+subplot(3,3,1);
+imshow(O1, []);
+subplot(3,3,2);
+imshow(O2, []);
+subplot(3,3,3);
+imshow(O3, []);
 
 
 %% 3.d)
 
 % Visualisierung der Spektren der abgetasteten Bilder.
+[amp, pha] = irpFFT(O1);
+[amp2, pha2] = irpFFT(O2);
+[amp3, pha3] = irpFFT(O3);
 
+figure(8);
+subplot(3,3,4);
+imshow(log2(fftshift(amp)), []);
+subplot(3,3,7);
+imshow((pha), []);
+
+subplot(3,3,5);
+imshow(log2(fftshift(amp2)), []);
+subplot(3,3,8);
+imshow((pha2), []);
+
+subplot(3,3,6);
+imshow(log2(fftshift(amp3)), []);
+subplot(3,3,9);
+imshow((pha3), []);
 
 
 %% 3.f)
 
 % Rekonstruktion des abgetasteten Bildes durch Tiefpassfilterung.
-
-
+[a2 p2] = irpTiefpass(amp2, pha2, 140);
+[a3 p3] = irpTiefpass(amp3, pha3, 110);
+[a3h p3h] = irpHochpass(amp3, pha3, 110);
 
 % Visualisierung des Ergebnisses.
-
+imshow(irpInverseFFT(a2, p2), []);
+figure;
+subplot(1,3,1);
+imshow(irpInverseFFT(a3, p3), []);
+subplot(1,3,2);
+imshow(log2(fftshift(a3)), []);
+subplot(1,3,3);
+imshow(log2(fftshift(a3h)), []);
 
 
 %% Ausrichten des Textes
 %% 4.a)
 
 % Visualisierung der Spektren für verschiedene gedrehte Texte.
+I4 = rgb2gray(imread('Sonnet_for_Lena.bmp'));
+I5 = rgb2gray(imread('Sonnet_for_Lena_verdreht.bmp'));
+[amp, pha] = irpFFT(I4);
+[amp2, pha2] = irpFFT(I5);
+figure;
+subplot(2,3,1);
+imshow(I4);
+subplot(2,3,2);
+imshow(log2(fftshift(amp)), []);
+subplot(2,3,3);
+imshow((pha), []);
 
-
+subplot(2,3,4);
+imshow(I5);
+subplot(2,3,5);
+imshow(log2(fftshift(amp2)), []);
+subplot(2,3,6);
+imshow((pha2), []);
 
 %% 4.b)
 
 % Bestimmung des Verdrehungswinkels mit Hilfe des Amplitudenspektrum.
+% [a6 p6] = irpFFT(log2(fftshift(amp2)));
+% [a p] = irpHochpass(a6, p6, 1);
+% imshow(irpInverseFFT(a, p), []);
 
+[a p] = irpHochpass(amp2, pha2, 120);
+imshow(log2(fftshift(a)), []);
+Iflip = flipud(fftshift(a));
+[x y] = max(Iflip);
+[i j] = max(x);
+vec = [y(j), j];
+
+[angle, ~]= cart2pol(vec(1), vec(2));
+angle = angle*180/pi;
+imshow(Iflip, []);
 
 
 %% 4.c)
 
 % Ausrichtung der verdrehten Texte mit Hilfe von 'imrotate'.
+imshow(imrotate(I5, angle));
 
 
 
 %% 4.d)
 
 % Ausrichtung eines verdrehten Textes mit Hilfe der Funktion 'irpAlignText'.
-
+I6 = irpAlignText(I5);
 
 
 % Visualisierung des Ergebnisses.
-
+figure;
+imshow(I6, []);
 
 
 %% Textzeichenerkennung
