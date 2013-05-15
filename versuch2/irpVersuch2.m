@@ -278,14 +278,25 @@ imshow(I6, []);
 
 %% Textzeichenerkennung
 %% 5.a) - 5.b)
-
+I7 = rgb2gray(imread('Sonnet_for_Lena.bmp'));
+tmpL = rgb2gray(imread('Template_L.bmp'));
+tmpN = rgb2gray(imread('Template_n.bmp'));
+tmpS = rgb2gray(imread('Template_S.bmp'));
 % Textzeichenerkennung.
-
+I7cL = irpOCR(I7, tmpL);
+I7cN = irpOCR(I7, tmpN);
+I7cS = irpOCR(I7, tmpS);
 
 
 % Visualisierung der Korrelationsfunktionen.
 
-
+figure(12);
+subplot(4,1,2);
+imshow(I7cL,[]);
+subplot(4,1,3);
+imshow(I7cN,[]);
+subplot(4,1,4);
+imshow(I7cS,[]);
 
 %% 5.e)
 
@@ -294,5 +305,28 @@ imshow(I6, []);
 
 
 % Visualisierung der Maxima durch umschreibende Rechtecke.
+figure(13)
 
+[numrow, numcol] = size(rgb2gray(template_l));
+[Y ZEILEN] = max(ocr_l);
+[A D] = max(Y);
+bildmitbox_l = irpDrawBoundingBox(rgb2gray(sonnet), D, ZEILEN(D), numrow, numcol, 3, 0, 255, 0);
 
+subplot(3,1,1);
+imshow(bildmitbox_l, []);
+
+[numrow, numcol] = size(rgb2gray(template_n));
+[Y ZEILEN] = max(ocr_n);
+[A D] = max(Y);
+bildmitbox_n = irpDrawBoundingBox(rgb2gray(sonnet), D, ZEILEN(D), numrow, numcol, 3, 0, 255, 0);
+
+subplot(3,1,2);
+imshow(bildmitbox_n, []);
+
+[numrow, numcol] = size(rgb2gray(template_s));
+[Y ZEILEN] = max(ocr_s);
+[A D] = max(Y);
+bildmitbox_s = irpDrawBoundingBox(rgb2gray(sonnet), D, ZEILEN(D), numrow, numcol, 3, 0, 255, 0);
+
+subplot(3,2,3);
+imshow(bildmitbox_s, []);
