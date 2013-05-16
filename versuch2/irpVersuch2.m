@@ -110,6 +110,13 @@ imshow(irpInverseFFT(a2, p2), []);
 
 [amp, pha] = irpFFT(I1R);
 [amp2, pha2] = irpFFT(I2R);
+
+figure(29);
+subplot(3,1,1);
+imshow(log2(fftshift(amp)), []);
+subplot(3,1,2);
+imshow(pha, []);
+
 % Visualisierung der verrauschten Bilder.
 % Bild 1
 figure(4);
@@ -206,6 +213,7 @@ imshow((pha3), []);
 [a3h p3h] = irpHochpass(amp3, pha3, 110);
 
 % Visualisierung des Ergebnisses.
+figure;
 imshow(irpInverseFFT(a2, p2), []);
 figure;
 subplot(1,3,1);
@@ -305,28 +313,28 @@ imshow(I7cS,[]);
 
 
 % Visualisierung der Maxima durch umschreibende Rechtecke.
-figure(13)
+figure(13);
 
-[numrow, numcol] = size(rgb2gray(template_l));
-[Y ZEILEN] = max(ocr_l);
+[numrow, numcol] = size(tmpL);
+[Y ZEILEN] = max(I7cL);
 [A D] = max(Y);
-bildmitbox_l = irpDrawBoundingBox(rgb2gray(sonnet), D, ZEILEN(D), numrow, numcol, 3, 0, 255, 0);
+bildmitbox_l = irpDrawBoundingBox(I7, D-numcol, ZEILEN(D)-numrow, numcol, numrow, 3, 0, 255, 0);
 
 subplot(3,1,1);
 imshow(bildmitbox_l, []);
 
-[numrow, numcol] = size(rgb2gray(template_n));
-[Y ZEILEN] = max(ocr_n);
+[numrow, numcol] = size(tmpN);
+[Y ZEILEN] = max(I7cN);
 [A D] = max(Y);
-bildmitbox_n = irpDrawBoundingBox(rgb2gray(sonnet), D, ZEILEN(D), numrow, numcol, 3, 0, 255, 0);
+bildmitbox_n = irpDrawBoundingBox(I7, D-numcol, ZEILEN(D)-numrow, numcol, numrow, 3, 0, 255, 0);
 
 subplot(3,1,2);
 imshow(bildmitbox_n, []);
 
-[numrow, numcol] = size(rgb2gray(template_s));
-[Y ZEILEN] = max(ocr_s);
+[numrow, numcol] = size(tmpS);
+[Y ZEILEN] = max(I7cS);
 [A D] = max(Y);
-bildmitbox_s = irpDrawBoundingBox(rgb2gray(sonnet), D, ZEILEN(D), numrow, numcol, 3, 0, 255, 0);
+bildmitbox_s = irpDrawBoundingBox(I7, D-numcol, ZEILEN(D)-numrow, numcol, numrow, 3, 0, 255, 0);
 
-subplot(3,2,3);
+subplot(3,1,3);
 imshow(bildmitbox_s, []);
