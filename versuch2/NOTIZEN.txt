@@ -1,4 +1,25 @@
+4.2.1
+e) Bild ist noch zu erkennen, Grauwerte stimmen aber nicht
+
+4.2.2
+
+c) Rauschen ist auch in der Amplitude sichtbar
+
+d) Bildinformationen in Phasensprektrum enthalten
+
+
 4.2.3 
+
+d) periodische Fortsetzung
 
 e) ab 4 wirds seltsam wenig
 
+4.2.4.
+
+a) spektren auch verdreht
+
+4.2.5
+
+c) 
+
+d) "Umdrehen" statt komplex konjugierter Rechnung
