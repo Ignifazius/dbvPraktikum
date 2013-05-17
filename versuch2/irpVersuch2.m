@@ -15,7 +15,7 @@ imshow(I1);
 subplot(1,3,2);
 imshow(log2(fftshift(amp)), []);
 subplot(1,3,3);
-imshow((pha), []);
+imshow(fftshift(pha), []);
 
 
 [amp2, pha2] = irpFFT(I2);
@@ -25,7 +25,7 @@ imshow(I2);
 subplot(1,3,2);
 imshow(log2(fftshift(amp2)), []);
 subplot(1,3,3);
-imshow((pha2), []);
+imshow(fftshift(pha2), []);
 
 
 %% 1.d)
@@ -115,7 +115,7 @@ figure(29);
 subplot(3,1,1);
 imshow(log2(fftshift(amp)), []);
 subplot(3,1,2);
-imshow(pha, []);
+imshow(fftshift(pha), []);
 
 % Visualisierung der verrauschten Bilder.
 % Bild 1
@@ -192,17 +192,17 @@ figure(8);
 subplot(3,3,4);
 imshow(log2(fftshift(amp)), []);
 subplot(3,3,7);
-imshow((pha), []);
+imshow(fftshift(pha), []);
 
 subplot(3,3,5);
 imshow(log2(fftshift(amp2)), []);
 subplot(3,3,8);
-imshow((pha2), []);
+imshow(fftshift(pha2), []);
 
 subplot(3,3,6);
 imshow(log2(fftshift(amp3)), []);
 subplot(3,3,9);
-imshow((pha3), []);
+imshow(fftshift(pha3), []);
 
 
 %% 3.f)
@@ -238,14 +238,14 @@ imshow(I4);
 subplot(2,3,2);
 imshow(log2(fftshift(amp)), []);
 subplot(2,3,3);
-imshow((pha), []);
+imshow(fftshift(pha), []);
 
 subplot(2,3,4);
 imshow(I5);
 subplot(2,3,5);
 imshow(log2(fftshift(amp2)), []);
 subplot(2,3,6);
-imshow((pha2), []);
+imshow(fftshift(pha2), []);
 
 %% 4.b)
 
