@@ -187,10 +187,13 @@ I3 = double(imread('aufnahme1.bmp'));
 figure(8);
 subplot(1,3,1);
 imshow(I3, []);
+title('Ausgangsbild');
 subplot(1,3,2);
 imshow(E, []);
+title('E');
 subplot(1,3,3);
 imshow(O, []);
+title('O');
 
 %% 3.b) 
 %check
@@ -201,19 +204,22 @@ imshow(O, []);
 bild = zeros(100,100);
 [ C ] = irpCircle ( 50, 50, 70, 20, pi/2, [100 100] ); %(cx, cy, omega, r, alpha, imgSize)
 bild(C) = 255;
-figure;
+figure(9);
 imshow (bild, []);
+title('Testbild irpCircle');
 %% 4.c)
 %check
 
 %% 4.d)
 [H1] = irpHough(E, drill1);
 [H2] = irpHough(E, drill2);
-figure(9);
+figure(10);
 subplot(1,2,1);
 imshow(H1, []);
+title('Hough, Lochgröße a');
 subplot(1,2,2);
 imshow(H2, []);
+title('Hough, Lochgröße b');
 %% 4.e)
 %check
 %% 4.f)
