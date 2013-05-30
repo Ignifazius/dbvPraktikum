@@ -9,6 +9,20 @@ function H = irpHough(B, r)
 %
 % Rückgabewerte:
 % 'H'                 2d Hough-Raum
+[numrow, numcol] = size(B);
+H = zeros(numrow, numcol);
+
+for i = 1: numrow
+   for j= 1: numcol
+       if B(i,j) == 1
+       [ C ] = irpCircle(j, i, 0, r, pi, [numrow, numcol]);
+       H(C) = H(C) +1;
+       end
+   end
+end
+
+
+
 
 
 

@@ -7,7 +7,7 @@
 I = imread('aufnahme1.bmp');             % Hole irgendein Bild, z.B. von der Kamera
 figure(1);
 imshow(I, []);
-title('Grundbild');
+title('Ausgangsbild');
 
 drill1 = 60/2;
 drill2 = 40/2;
@@ -22,7 +22,9 @@ drill2 = 40/2;
 %% Gradientenoperatoren
 %% 2.a) 
 I2 = double(imread('testmuster1.bmp'));
-
+if max(max(I2)) > 1 %imnoise kann nicht mit 255 umgehen, sondern nur mit 1
+    I2 = I2/max(max(I2));
+end
 
 % Gradienten
 Roberts1 = [1 0; 0 -1];
@@ -96,12 +98,11 @@ ISalt = imnoise(I2, 'salt & pepper');
 %IRoberts Gauss
 IRobX1 = imfilter(IGauss, Roberts1);
 IRobY1 = imfilter(IGauss, Roberts2);
-IGraW1 = atan2(IRobY1, IRobX1);
-
+IGraW1 = atan2(IRobY1, IRobX1)-pi/4;
 %IRoberts SnP
 IRobX2 = imfilter(ISalt, Roberts1);
 IRobY2 = imfilter(ISalt, Roberts2);
-IGraW2 = atan2(IRobY2, IRobX2);
+IGraW2 = atan2(IRobY2, IRobX2)-pi/4;
 
 %ISobel Gauss
 ISoX1 = imfilter(IGauss, SobelX);
@@ -181,23 +182,42 @@ title('Custom Kern, Salt & Pepper');
 
 %% Kantenbild
 %% 3.a)
-I3 = imread('aufnahme1');
+I3 = double(imread('aufnahme1.bmp'));
+[E O] = irpEdges(I3);
+figure(8);
+subplot(1,3,1);
+imshow(I3, []);
+subplot(1,3,2);
+imshow(E, []);
+subplot(1,3,3);
+imshow(O, []);
 
-%% 3.b)
-
+%% 3.b) 
+%check
 %% Hough-Transformation für Kreise
 %% 4.a)
-
+%check
 %% 4.b)
-
+bild = zeros(100,100);
+[ C ] = irpCircle ( 50, 50, 70, 20, pi/2, [100 100] ); %(cx, cy, omega, r, alpha, imgSize)
+bild(C) = 255;
+figure;
+imshow (bild, []);
 %% 4.c)
+%check
 
 %% 4.d)
-
+[H1] = irpHough(E, drill1);
+[H2] = irpHough(E, drill2);
+figure(9);
+subplot(1,2,1);
+imshow(H1, []);
+subplot(1,2,2);
+imshow(H2, []);
 %% 4.e)
-
+%check
 %% 4.f)
-
+%check
 %% Suche nach Höhepunkten in den Hough-Räumen
 %% 5.a)
 

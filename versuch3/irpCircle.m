@@ -44,8 +44,8 @@ for i=1:num
     % Berechnung für 1. Kreissegment.
     
     % Berechne gerundete x- und y-Koordinate.
-    x = 
-    y = 
+    x = round(cosphi * r + cx);
+    y = round(sinphi * r + cy);
         
     % Berechne Index nach Überprüfung.
     if (x > 0 && y > 0 && x <= sx && y <= sy)
@@ -56,8 +56,10 @@ for i=1:num
     % Berechnung für gegenüberliegendes 2. Kreissegment.
     
     % Berechne gerundete x- und y-Koordinate für Kreissegment gegenüber.
-    x = 
-    y = 
+    cosphi = cos(phi + pi);
+    sinphi = sin(phi + pi);
+    x = round(cosphi * r + cx);
+    y = round(sinphi * r + cy); 
         
     % Berechne Index nach Überprüfung.
     if (x > 0 && y > 0 && x <= sx && y <= sy)

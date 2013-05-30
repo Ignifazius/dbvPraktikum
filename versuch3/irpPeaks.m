@@ -11,10 +11,14 @@ function P = irpPeaks(H, r, threshold, maxNumPeaks)
 % Rückgabewerte:
 % 'P'                 Mx3 Matrix mit Zeilenvektoren der Form (x,y,value)
 
+Htmp(H<threshold) = 0;
 
 
 
-
+%Votgehen: druch bild laufen bis weißer pixel gefunden, dann maximum im
+%radiusumkreis suchen, maximum = einer der zu suchenden Werte. Weitermachen
+%für restliches bild
+%-> irpCut();
 
 
 
