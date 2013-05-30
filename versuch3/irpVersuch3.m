@@ -7,6 +7,7 @@
 I = imread('aufnahme1.bmp');             % Hole irgendein Bild, z.B. von der Kamera
 figure(1);
 imshow(I, []);
+title('Grundbild');
 
 drill1 = 60/2;
 drill2 = 40/2;
@@ -36,12 +37,16 @@ IGraW = atan2(IRobY, IRobX);
 figure(2);
 subplot(2,2,1);
 imshow(IRobX, []);
+title('Roberts, X');
 subplot(2,2,2);
 imshow(IRobY, []);
+title('Roberts, Y');
 subplot(2,2,3);
 imshow(IGraB, []);
+title('Roberts, Gradienten');
 subplot(2,2,4);
 imshow(IGraW, []);
+title('Roberts, Gradientenwinkel');
 
 
 %% 2.b)
@@ -58,12 +63,16 @@ IGraWS = atan2(ISoY, ISoX);
 figure(3);
 subplot(2,2,1);
 imshow(ISoX, []);
+title('Sobel, X');
 subplot(2,2,2);
 imshow(ISoY, []);
+title('Sobel, Y');
 subplot(2,2,3);
 imshow(IGraBS, []);
+title('Sobel, Gradienten');
 subplot(2,2,4);
 imshow(IGraWS, []);
+title('Sobel, Gradientenwinkel');
 
 %% 2.c)
 
@@ -75,8 +84,10 @@ IAbs = abs(ILap);
 figure(4);
 subplot(2,1,1);
 imshow(ILap, []);
+title('Laplace');
 subplot(2,1,2);
-imshow(IAbs, [])
+imshow(IAbs, []);
+title('Laplace, Abs');
 
 %% 2.d)
 IGauss = imnoise(I2, 'gaussian');
@@ -86,28 +97,36 @@ ISalt = imnoise(I2, 'salt & pepper');
 IRobX1 = imfilter(IGauss, Roberts1);
 IRobY1 = imfilter(IGauss, Roberts2);
 IGraW1 = atan2(IRobY1, IRobX1);
+
 %IRoberts SnP
 IRobX2 = imfilter(ISalt, Roberts1);
 IRobY2 = imfilter(ISalt, Roberts2);
 IGraW2 = atan2(IRobY2, IRobX2);
+
 %ISobel Gauss
 ISoX1 = imfilter(IGauss, SobelX);
 ISoY1 = imfilter(IGauss, SobelY);
 IGraWS1 = atan2(ISoY1, ISoX1);
+
 %ISobel SnP
 ISoX2 = imfilter(ISalt, SobelX);
 ISoY2 = imfilter(ISalt, SobelY);
 IGraWS2 = atan2(ISoY2, ISoX2);
 
+
 figure(5);
 subplot(2,2,1);
 imshow(IGraW1, []);
+title('Roberts, Gauss');
 subplot(2,2,2);
 imshow(IGraW2, []);
+title('Roberts, Salt & Pepper');
 subplot(2,2,3);
 imshow(IGraWS1, []);
+title('Sobel, Gauss');
 subplot(2,2,4);
 imshow(IGraWS2, []);
+title('Sobel, Salt & Pepper');
 
 %% 2.e)
 %Roberts
@@ -126,16 +145,22 @@ IAbsS = abs(ILapS);
 figure(6);
 subplot(3,2,1);
 imshow(IGraBRG, []);
+title('Roberts, Gauss, Gradient');
 subplot(3,2,2);
 imshow(IGraBRS, []);
+title('Roberts, Salt & Pepper, Gradient');
 subplot(3,2,3);
 imshow(IGraBSoG , []);
+title('Sobel, Gauss, Gradient');
 subplot(3,2,4);
 imshow(IGraBSoS , []);
+title('Sobel, Salt & Pepper, Gradient');
 subplot(3,2,5);
 imshow(IAbsG, []);
+title('LaPlace, Gauss');
 subplot(3,2,6);
 imshow(IAbsS, []);
+title('LaPlace, Salt & Pepper');
 
 %% 2.f)
 Kern1 = [2 1 0; 1 0 -1; 0 -1 -2]; % Sobel gedreht
@@ -146,10 +171,13 @@ IKernS = imfilter(imnoise(I2, 'salt & pepper'), Kern1);
 figure(7);
 subplot(1,3,1);
 imshow(IKern1);
+title('Custom Kern');
 subplot(1,3,2);
 imshow(IKernG);
+title('Custom Kern, Gauss');
 subplot(1,3,3);
 imshow(IKernS);
+title('Custom Kern, Salt & Pepper');
 
 %% Kantenbild
 %% 3.a)
