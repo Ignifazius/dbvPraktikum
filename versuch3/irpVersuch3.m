@@ -182,7 +182,7 @@ title('Custom Kern, Salt & Pepper');
 
 %% Kantenbild
 %% 3.a)
-I3 = double(imread('aufnahme1.bmp'));
+I3 = double(imread('aufnahme2.bmp'));
 [E O] = irpEdges(I3);
 figure(8);
 subplot(1,3,1);
@@ -225,10 +225,32 @@ title('Hough, Lochgröße b');
 %% 4.f)
 %check
 %% Suche nach Höhepunkten in den Hough-Räumen
-%% 5.a)
+%% 5.a) 
 
 %% 5.b)
+figure(11);
+P1 = irpPeaks(H1, drill1, 70, 4);
+%TODO threshold dynamisch
+bild1 = H1;
+[g ~]= size(P1);
+for i=1:g
+    [ C ] = irpCircle ( P1(i,1), P1(i,2), 0, drill1, pi, size(bild1) );
+    bild1(C) = 255;
+end
+subplot(1,2,1);
+imshow(bild1, []);
+title('Lochgröße a');
 
+P2 = irpPeaks(H2, drill2, 2, 3);
+bild2 = H2;
+[g ~]= size(P2);
+for i=1:g
+    [ C ] = irpCircle ( P2(i,1), P2(i,2), 0, drill2, pi, size(bild2) );
+    bild2(C) = 255;
+end
+subplot(1,2,2);
+imshow(bild2, []);
+title('Lochgröße b');
 %% Subpixel-Genauigkeit
 %% 6.a)
 

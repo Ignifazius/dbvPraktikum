@@ -12,3 +12,8 @@ function peak = irpFindPeak(H)
 
 
 
+[x y] = max(H);
+[maxV,index_x] = max(x);
+
+index_y = y(index_x);
+peak = [index_x index_y maxV];
