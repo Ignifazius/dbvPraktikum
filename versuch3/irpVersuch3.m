@@ -252,7 +252,11 @@ subplot(1,2,2);
 imshow(bild2, []);
 title('Lochgröße b');
 %% Subpixel-Genauigkeit
-%% 6.a)
+%% 6.a) 
+S1 = irpSubPixel(H1, P1);
+H1HD = irpTestSubPixel(H1, P1, S1);
+figure;
+imshow(H1HD ,[]);
 
 %% 6.b)
 
