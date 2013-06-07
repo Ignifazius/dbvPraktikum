@@ -30,40 +30,5 @@ end
 
 
 
-% Htmp = H;
-% Htmp(H<threshold) = 0;
-% imshow(H, []);
-% figure;
-% imshow(Htmp, []);
-% [numrow numcol] = size(H);
-% P = [0 0 0];
-% x = 1;
-% for i=1+r:numrow
-%     for j=1+r:numcol
-%         if Htmp(i,j) ~= 0
-%             center = max(max(Htmp(i-r:i+r,j-r:j+r)));
-%             [cx cy] = find(Htmp == center);
-%             irpCut(Htmp, cx, cy, r);
-%             P(x) = [cx cy center];
-%             x= x+1;
-%         end
-%     end
-% end
-
-
-%Votgehen: druch bild laufen bis weißer pixel gefunden, dann maximum im
-%radiusumkreis suchen, maximum = einer der zu suchenden Werte. Weitermachen
-%für restliches bild
-%-> irpCut();
-
-
-
-
-
-
-
-
-
-
 
 

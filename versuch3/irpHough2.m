@@ -1,9 +1,9 @@
 function H = irpHough2(B, O, r, alpha)
 % H = irpHough(B, O, r, alpha)
 % Berechnet einen 2d Hough-Raum 'H' für Kreise mit Radius 'r' mit Hilfe
-% eines binarisiertes Bildes 'B'. Zusätzlich wird für jeden Kantenpunkt
-% eine Gradientenrichtung durch 'O' angegeben. Diese werden genutzt, um 
-% nicht einen vollständigen Kreis zu zeichnen, sondern zwei Kreissegmente. 
+% eines binarisierten Bildes 'B'. Zusätzlich wird für jeden Kantenpunkt
+% eine Gradientenrichtung durch 'O' angegeben. Diese werden genutzt, um
+% nicht einen vollständigen Kreis zu zeichnen, sondern zwei Kreissegmente.
 % Die Größe eines Kreissegmentes ist mittels 'alpha' einstellbar.
 %
 % Parameter:
@@ -14,6 +14,22 @@ function H = irpHough2(B, O, r, alpha)
 %
 % Rückgabewerte:
 % 'H'                 2d Hough-Raum
+
+[numrow numcol] = size(B);
+Htmp = zeros(numrow, numcol);
+
+for x =1:numcol
+    for y=1:numrow
+        if B(y,x) == 0
+            continue;
+        end;
+        angle = O(y,x);
+        C = irpCircle(x, y, angle, r, alpha, size(Htmp));
+        Htmp(C) = Htmp(C) + 1;
+    end
+end
+
+H = Htmp;
 
 
 

@@ -165,7 +165,6 @@ title('LaPlace, Salt & Pepper');
 
 %% 2.f)
 Kern1 = [2 1 0; 1 0 -1; 0 -1 -2]; % Sobel gedreht
-Kern2 = [0 0 0 1; 0 0 1 0; 0 -1 0 0; -1 0 0 0];
 IKern1 = imfilter(I2, Kern1);
 IKernG = imfilter(imnoise(I2, 'gaussian'), Kern1);
 IKernS = imfilter(imnoise(I2, 'salt & pepper'), Kern1);
@@ -253,20 +252,37 @@ imshow(bild2, []);
 title('Lochgröße b');
 %% Subpixel-Genauigkeit
 %% 6.a) 
-S1 = irpSubPixel(H1, P1);
-H1HD = irpTestSubPixel(H1, P1, S1);
-figure;
-imshow(H1HD ,[]);
+
+
 
 %% 6.b)
-
+S1 = irpSubPixel(H1, P1);
+S2 = irpSubPixel(H2, P2);
+figure(12);
+irpTestSubPixel(H1, P1, S1);
 %% 6.c)
+irpShowResults(P1, P2, drill1, drill2, I3/255);
 
 %% Ausnutzung der Gradientenorientierung
 %% 7.a)
 
 %% 7.b)
+H1 = irpHough2(E, O, drill1, pi/42);
+H2 = irpHough2(E, O, drill2, pi/42);
+P1 = irpPeaks(H1, drill1, 70, 4);
+P2 = irpPeaks(H2, drill2, 2, 3);
 
+
+
+figure(13);
+subplot(1,2,1);
+imshow(H1, []);
+title('Lochgröße a');
+subplot(1,2,2);
+imshow(H2, []);
+title('Lochgröße b');
+figure;
+irpShowResults(P1, P2, drill1, drill2, I3/255);
 %% 7.c)
 
 %% 7.d)
