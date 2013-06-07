@@ -229,7 +229,6 @@ title('Hough, Lochgröße b');
 %% 5.b)
 figure(11);
 P1 = irpPeaks(H1, drill1, 70, 4);
-%TODO threshold dynamisch
 bild1 = H1;
 [g ~]= size(P1);
 for i=1:g
@@ -269,7 +268,7 @@ irpShowResults(P1, P2, drill1, drill2, I3/255);
 %% 7.b)
 H1 = irpHough2(E, O, drill1, pi/42);
 H2 = irpHough2(E, O, drill2, pi/42);
-P1 = irpPeaks(H1, drill1, 70, 4);
+P1 = irpPeaks(H1, drill1, 2, 4);
 P2 = irpPeaks(H2, drill2, 2, 3);
 
 

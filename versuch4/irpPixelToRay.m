@@ -16,4 +16,10 @@
 
 function x_r = irpPixelToRay(x,y,f,s,cc)
 
-% insert calculation here !!!!!
+%umrechnung bildkoordinaten
+difx = x - cc(1);
+dify = y - cc(2);
+%richtungsvektor
+x_r = [difx*s(1) dify*s(2) f];
+% normierung richtungsvektor
+x_r = x_r / norm(x_r);
