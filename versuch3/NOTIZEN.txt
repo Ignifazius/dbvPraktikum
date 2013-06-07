@@ -1,0 +1,23 @@
+5.3.2
+d) Rauschen: Gauss + S&P; Sobel, EVERYWHERE!
+
+f) 45° gedrehter Sobel
+
+5.3.3
+b) mittlerer Grauwert -> TODO andere heuristik suchen
+
+5.3.4
+e) Kreise und "Reifen", je nach größe des Radius' und der Lochgröße. Außerdem doppellinien von den kanten
+
+f) wird breiter und irdendwann ein Ring
+
+
+5.3.7
+a) man kann an einem Punkt keine Tangente anlegen. -> Gegen ungenauigkeiten -> bei einem Punkt ist keinerlei Toleranz mehr vorhanden
+
+c) check
+
+d) Radius oder Auflösung
+
+e) bei ungenauem gradientenbild werden keine Maxima gefunden, da die Kreissegmente falsch eingezeichnet werden
+
