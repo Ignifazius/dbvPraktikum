@@ -15,5 +15,9 @@
 
 function [n,d] = irpGetCalibrationPlane(CTW)
 
-n = 
-d =
+pw = [0 0 1 0]';     
+n = CTW * pw;
+pw2 = [1 1 0 1]';
+pc2 = CTW * pw2;
+d = n'* pc2;
+n = n(1:3)';

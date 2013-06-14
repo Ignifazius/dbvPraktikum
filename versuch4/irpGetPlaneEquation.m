@@ -14,5 +14,6 @@
 
 function [PlaneNormal PlaneD] = irpGetPlaneEquation(point1, point2, point3)
 
-PlaneNormal =
-PlaneD =
+PlaneNormal = cross(point3-point2,point3-point1);
+PlaneNormal = PlaneNormal/norm(PlaneNormal);
+PlaneD = PlaneNormal*point1';

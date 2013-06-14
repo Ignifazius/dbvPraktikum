@@ -29,22 +29,22 @@ for y = 1: size(GrayMaskObj, 1)
         if(GrayMaskObj(y, x)~=0)
         
             % determine ray at (x,y)
-            b = 
+            b = irpPixelToRay(x,y,f,s,cc);
             
             % determine normal of corresponding projector plane
-            n =
+            n = PlaneNormals(GrayMaskObj(y,x),:);
             
             if n~=[0,0,0] % security check      
                 
                 % determine distance of corresponding projector plane
-                d =
+                d = PlaneDs(GrayMaskObj(y,x));
                 
                 % intersect ray and projector plane
-
+                PlanePoint = irpIntersectRayAndPlane([x y],n,d,f,s,cc);
                 % save 3d point in Points3D
-
+                Points3D(y,x,1:3) = PlanePoint;
                 % save z coordinate in DistanceMap
-                
+                DistanceMap(y, x) = PlanePoint(3);
             end
         end
     end

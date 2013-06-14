@@ -17,5 +17,11 @@
 %   PlanePoint: 3d position of intersection, a (3 x 1) vector
 
 function PlanePoint = irpIntersectRayAndPlane(pixel_pos,N,D,f,s,cc)
+x = pixel_pos(1);
+y = pixel_pos(2);
+ray = irpPixelToRay(x,y,f,s,cc);
+factor = D / (N* ray');
+PlanePoint = factor * ray;
 
-PlanePoint =
+
+

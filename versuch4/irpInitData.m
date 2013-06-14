@@ -11,4 +11,4 @@ f = 849.25423;
 s = [1; 853.76693/849.25423];
 cc = [353.69360;257.31276];
 kc = [-0.22811; 0.20878; -0.00944; -0.00010; 0.00000];
-calib_dist = [0; 0]; %% insert measured values here
+calib_dist = [199,5; 199,5]; %% insert measured values here
