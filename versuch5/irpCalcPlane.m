@@ -10,8 +10,14 @@ function [p] = irpCalcPlane(Q)
 % Rückgabewerte:
 % 'p'                 1x4 Vektor für Ebene (nx, ny, nz, d)
 
+A = Q(1,1:3)-Q(2,1:3);
+B = Q(1,1:3)-Q(3,1:3);
+n = cross(A',B');
+n = n / norm(n);
+x = (Q(1,1:3))';
+d = n' * x;
 
-
+p = [n(1,1), n(2,1), n(3,1), d];
 
 
 

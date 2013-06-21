@@ -11,12 +11,13 @@ function [C] = irpPointsOnPlane(Points, p, eps)
 % Rückgabewerte:
 % 'C'                 Kx1 Spaltenvektor mit Indizes der Kontaktpunkte.
 
+[numcol numrow] = size(Points);
 
-
-
-
-
-
+d = zeroes(numcol,1);
+for i = 1: numcol
+    d(i) = dot(Points(i,:),p(1:3));
+end
+C = find(abs(d-p(4)) <= eps);
 
 
 

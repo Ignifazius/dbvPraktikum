@@ -64,10 +64,12 @@ f = [15 15 10];
 Labels = zeros(size(Points, 1), 1);
 
 %% Füge Rauschen hinzu und setze das Epsilon für die Kontaktumgebung.
-noise = 
-eps = 
+noise = 0.25;
+eps = noise * 100;
+if (eps == 0)
+    eps = 1;
+end
 Points = irpAddNoise(Points, noise);
-
 %% Interpretiere Szene.
 iter = 
 minNum = 
