@@ -27,9 +27,6 @@ Points3D = zeros(size(GrayMaskObj, 1), size(GrayMaskObj,2), 3);
 for y = 1: size(GrayMaskObj, 1)
     for x = 1: size(GrayMaskObj, 2)
         if(GrayMaskObj(y, x)~=0)
-        
-            % determine ray at (x,y)
-            b = irpPixelToRay(x,y,f,s,cc);
             
             % determine normal of corresponding projector plane
             n = PlaneNormals(GrayMaskObj(y,x),:);
