@@ -14,8 +14,22 @@ function [s num C] = irpBestSphere(Points, iter, eps)
 % 'C'                 (num x 1) Vektor mit Indizes der Kontaktpunkte
 
 
-
-
+num = -1;
+for i=1:iter
+	p_temp = irpCalcSphere(irpRandPoints(Points,4));
+    if p_temp(4) > 50 %verwirf kugeln größer r 50
+        continue;
+    end
+    C_temp = irpPointsOnSphere(Points, p_temp, eps);
+    nomnom = size(C_temp, 1);
+    
+    if num < nomnom
+       num = nomnom;
+       C = C_temp;
+       s = p_temp;
+    end
+    
+end
 
 
 

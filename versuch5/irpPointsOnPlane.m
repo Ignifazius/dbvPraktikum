@@ -13,7 +13,7 @@ function [C] = irpPointsOnPlane(Points, p, eps)
 
 [numcol numrow] = size(Points);
 
-d = zeroes(numcol,1);
+d = zeros(numcol,1);
 for i = 1: numcol
     d(i) = dot(Points(i,:),p(1:3));
 end
