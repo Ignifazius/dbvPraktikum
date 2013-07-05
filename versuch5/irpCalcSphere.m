@@ -25,9 +25,9 @@ else
     c2 = b + h(2)*w - 0.5*h(3)*n;
 %     bool = isequal(c1, c2);
 %     if bool ==1 % Teste ob c richtig berechnet wurde
-        m = irpCalcCenterAxis(a, b, c1);
-        r = norm(m-a);
-        s = [m(1) m(2) m(3) r];
+        %m = irpCalcCenterAxis(a, b, c1);
+        r = norm(c1-Q(1,:));
+        s = [c1(1) c1(2) c1(3) r];
 %         disp('bkl');
 %     else
 %         disp('Error in calculating C');

@@ -14,7 +14,9 @@ function [p num C] = irpBestPlane(Points, iter, eps)
 % 'C'                 (num x 1) Vektor mit Indizes der Kontaktpunkte
 
 
-num = -1;
+num = 0;
+p =[];
+C =[];
 for i=1:iter
 	p_temp = irpCalcPlane(irpRandPoints(Points,3));
     C_temp = irpPointsOnPlane(Points, p_temp, eps);

@@ -64,32 +64,21 @@ f = [15 15 10];
 Labels = zeros(size(Points, 1), 1);
 
 %% Füge Rauschen hinzu und setze das Epsilon für die Kontaktumgebung.
-noise = 0.25;
-eps = noise * 100;
+noise = 0.03;
+eps = noise * sqrt(3^3) % Raumdiagonale im Quader = Seite * Wurzel3
 if (eps == 0)
-    eps = 1;
+    eps = 0.1;
 end
 Points = irpAddNoise(Points, noise);
 
-%% own
-eps = 25;
-% P = irpCalcPlane(irpRandPoints(Points,3));
-% [C] = irpPointsOnPlane(Points, P, eps);
-[p num C] = irpBestPlane(Points, 50, eps);
-q1 = [0 0 0];
-q2 = [2 0 0];
-q3 = [0 1 0];
-% q4 = [0.5 1 1];
-% Q = [q1; q2; q3; q4];
-[a n] = irpCalcCenterAxis(q1, q2, q3);
-[s] = irpCalcSphere(Q);
-
-%% own2
-[s num C] = irpBestSphere(Points, 50, 25);
 
 %% Interpretiere Szene.
-iter = 
-minNum = 
+
+% Hypergeometrische Verteilung
+totalPoints = size(Points,1);
+iter = floor(1/ (nchoosek(500,4) / nchoosek(totalPoints, 4)));
+
+minNum = 100;
 [S3 P3 Labels] = irpInterpret(Points, iter, eps, minNum);
 S3
 P3
